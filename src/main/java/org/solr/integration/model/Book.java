@@ -1,0 +1,59 @@
+package org.solr.integration.model;
+
+import org.apache.solr.client.solrj.beans.Field;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public final class Book {
+
+    @Field("book_id")
+    private final String id;
+    @Field("book_title")
+    private final String title;
+    @Field("authors")
+    private final List<String> authors = new ArrayList<>();
+    @Field("content")
+    private final String content;
+    @Field("language")
+    private final String language;
+
+    public Book(String id, String title, String language, List<String> authors, String content) {
+        this.id = id;
+        this.title = title;
+        this.language = language;
+        this.authors.addAll(authors);
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", authors=" + authors +
+                ", content='" + content + '\'' +
+                ", language='" + language + '\'' +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+}
