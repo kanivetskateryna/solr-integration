@@ -7,16 +7,19 @@ import java.util.List;
 
 public final class Book {
 
-    @Field("book_id")
-    private final String id;
+    @Field
+    private String id;
     @Field("book_title")
-    private final String title;
-    @Field("authors")
-    private final List<String> authors = new ArrayList<>();
-    @Field("content")
-    private final String content;
-    @Field("language")
-    private final String language;
+    private String title;
+    @Field
+    private List<String> authors = new ArrayList<>();
+    @Field
+    private String content;
+    @Field
+    private String language;
+
+    public Book() {
+    }
 
     public Book(String id, String title, String language, List<String> authors, String content) {
         this.id = id;

@@ -15,8 +15,15 @@ public class Main {
         EpubToModelTransformer epubToModelTransformer = new EpubToModelTransformer();
 
         try {
-            List<Book> books = epubToModelTransformer.transformEpubBooksToBookModels(bookStore.getEpubBooks());
-            solrRepository.save(books);
+//            List<Book> books = epubToModelTransformer.transformEpubBooksToBookModels(bookStore.getEpubBooks());
+//            solrRepository.save(books);
+
+            List<Book> allBooks = solrRepository.getAllBooks();
+            allBooks.forEach(System.out::println);
+
+            Book bookById = solrRepository.findBookById("824d1e31-b454-499b-93b9-0a505c725f47");
+            System.out.println("Book by ID: " + bookById);
+
         } catch (SolrServerException e) {
             e.printStackTrace();
         }
